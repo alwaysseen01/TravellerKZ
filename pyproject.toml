@@ -2,13 +2,13 @@
 name = "fastapiproject"
 version = "0.1.0"
 description = ""
-authors = ["Your Name <you@example.com>"]
+authors = ["Igor Ruzhilov <iruzhilov@gmail.com>"]
+license = "MIT"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12.0"
-fastapi = {extras = ["all"], version = "^0.109.0"}
-uvicorn = "^0.26.0"
+python = "3.12.0"
+fastapi = "^0.109.0"
 
 
 [build-system]
