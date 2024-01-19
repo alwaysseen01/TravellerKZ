@@ -1,13 +1,9 @@
-from datetime import datetime, timedelta, timezone
-
-from fastapi import Depends
 from fastapi.security import OAuth2PasswordBearer
-from jose import jwt
 from passlib.context import CryptContext
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from ..models import User
+from app.models import User
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")

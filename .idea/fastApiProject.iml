@@ -5,4 +5,14 @@
     <orderEntry type="jdk" jdkName="Poetry (fastApiProject) 3.12.0" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
+  <component name="PackageRequirementsSettings">
+    <option name="removeUnused" value="true" />
+  </component>
+  <component name="PyNamespacePackagesService">
+    <option name="namespacePackageFolders">
+      <list>
+        <option value="$MODULE_DIR$/app" />
+      </list>
+    </option>
+  </component>
 </module>

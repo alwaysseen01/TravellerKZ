@@ -1,0 +1,5 @@
+pydantic~=2.5.3
+fastapi~=0.109.0
+passlib~=1.7.4
+sqlalchemy~=2.0.25
+alembic~=1.13.1
