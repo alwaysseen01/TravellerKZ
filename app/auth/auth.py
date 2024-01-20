@@ -1,20 +1,17 @@
-import time
 from datetime import timedelta, datetime
 
 from fastapi import Depends, HTTPException, Form
 from fastapi.security import OAuth2PasswordBearer
-from jose import jwt, JWTError, ExpiredSignatureError
-from jose.jwt import decode
+from jose import jwt, JWTError
 from passlib.context import CryptContext
 from sqlalchemy.ext.asyncio import AsyncSession
 from starlette import status
 
-from app.auth.repositories.auth_repository import AuthRepository
 from app.database import get_async_session
 from app.db_config import ACCESS_TOKEN_EXPIRE_MINUTES, ALGORITHM, SECRET_KEY, REFRESH_TOKEN_EXPIRE_DAYS
+from app.repositories.user_repository import UserRepository
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/token")
-
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 
@@ -52,8 +49,8 @@ async def login_for_access_token(form_data: dict = Form(...), session: AsyncSess
     username = form_data.get("username")
     password = form_data.get("password")
 
-    auth_repository = AuthRepository(session)
-    user = await auth_repository.get_user_by_username(username=username)
+    user_repository = UserRepository(session)
+    user = await user_repository.get_user_by_username(username=username)
 
     if user is None or not verify_password(password, user.password):
         raise HTTPException(
@@ -80,8 +77,19 @@ async def get_current_user(token: str = Depends(oauth2_scheme), session: AsyncSe
             raise credentials_exception
     except JWTError:
         raise credentials_exception
-    auth_repository = AuthRepository(session)
-    user = await auth_repository.get_user_by_username(username=username)
+
+    user_repository = UserRepository(session)
+    user = await user_repository.get_user_by_username(username=username)
+
     if user is None:
         raise credentials_exception
     return user
+
+
+async def authenticate_user(username: str, password: str, session: AsyncSession = Depends(get_async_session)):
+    user_repository = UserRepository(session)
+    user = await user_repository.get_user_by_username(username)
+    if not user or not pwd_context.verify(password, user.hashed_password):
+        return False
+    if user.role == "admin":
+        return user
