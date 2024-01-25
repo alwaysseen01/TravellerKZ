@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,500;1,300&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    width: auto;
+    padding: 10px 20px 10px 5%;
+    background-color: #006d77;
+    display: grid;
+    grid-auto-flow: column;
+    position: relative;
+    align-items: center;
+}
+
+.title {
+    position: absolute;
+    color: #edf6f9;
+    font-family: 'IBM Plex Sans', sans-serif;
+    justify-self: flex-start;
+    margin-left: 30px;
+}
+
+.navigationBox {
+    justify-self:flex-end;
+}
+
+.navigationMenu {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: max-content;
+    height: max-content;
+    padding: 0;    
+}
+
+.navigationElement {
+    list-style: none;
+    padding: 10px 20px;
+    font-size: 24px;
+    color: #edf6f9;
+    font-family: 'IBM Plex Sans', sans-serif;
+    user-select: none;
+    border: 2px solid #edf6f9;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+}
+
+.navigationElement:hover {
+    transform: scale(1.025);
+    cursor: pointer;
+}
+
+.navigationElement.chosen {
+    background-color: #edf6f9;
+    color: #006d77;
+    transform: scale(1.05);
+}
+
+.logOutIcon {
+    justify-self: flex-end;
+    transition: all 0.2s ease-in-out;
+}
+
+.logOutIcon:hover {
+    transform: scale(1.075);
+    cursor: pointer;
+}
