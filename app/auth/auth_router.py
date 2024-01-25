@@ -6,7 +6,7 @@ from jose import jwt, JWTError
 from sqlalchemy.ext.asyncio import AsyncSession
 from starlette import status
 
-from app.auth.auth import create_access_token, hash_password, create_refresh_token, authenticate_user
+from app.auth.auth import create_access_token, hash_password, create_refresh_token, authenticate_user_by_form_data
 from app.auth.auth_schemas import Token
 from app.database import get_async_session
 from app.db_config import ACCESS_TOKEN_EXPIRE_MINUTES, REFRESH_TOKEN_EXPIRE_DAYS, SECRET_KEY, ALGORITHM
@@ -33,7 +33,7 @@ async def login_by_form_data(
     and return access and refresh tokens.
     """
     if form_data.username and form_data.password:
-        user = await authenticate_user(form_data.username, form_data.password, session)
+        user = await authenticate_user_by_form_data(form_data.username, form_data.password, session)
         if not user:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,

@@ -64,29 +64,33 @@ async def login_for_access_token(form_data: dict = Form(...), session: AsyncSess
     return {"access_token": access_token, "token_type": "bearer"}
 
 
-async def get_current_user(token: str = Depends(oauth2_scheme), session: AsyncSession = Depends(get_async_session)):
-    credentials_exception = HTTPException(
-        status_code=status.HTTP_401_UNAUTHORIZED,
-        detail="Could not validate credentials"
-    )
-
+async def authenticate_user_by_token(token: str = Depends(oauth2_scheme), session: AsyncSession = Depends(get_async_session)):
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
         username: str = payload.get("sub")
         if username is None:
-            raise credentials_exception
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="Could not validate credentials"
+            )
     except JWTError:
-        raise credentials_exception
+        raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="Could not validate credentials"
+            )
 
     user_repository = UserRepository(session)
     user = await user_repository.get_user_by_username(username=username)
 
     if user is None:
-        raise credentials_exception
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Could not validate credentials"
+        )
     return user
 
 
-async def authenticate_user(username: str, password: str, session: AsyncSession = Depends(get_async_session)):
+async def authenticate_user_by_form_data(username: str, password: str, session: AsyncSession = Depends(get_async_session)):
     user_repository = UserRepository(session)
     user = await user_repository.get_user_by_username(username)
     if not user or not pwd_context.verify(password, user.hashed_password):
