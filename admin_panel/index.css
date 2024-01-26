@@ -68,3 +68,204 @@ header {
     transform: scale(1.075);
     cursor: pointer;
 }
+
+.commandsInfoPage {
+    padding: 20px;
+    width: auto;
+    height: 1000px;
+    display: none;
+    position: relative;
+}
+
+.commandsInfoPage.opened {
+    display: block;
+}
+
+.adminsInfoPage {
+    padding: 40px 20px;
+    width: auto;
+    height: 1000px;
+    display: none;
+    z-index: 1;
+}
+
+.adminsInfoPage.opened {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.commandBox {
+    padding: 10px 40px;
+    border: 2px solid #006d77;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.commandText {
+    flex-basis: 90%;
+}
+
+.editCommandButton {
+    flex-basis: 5%;
+    border: 2px solid green;
+    color: green;
+    padding: 10px 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+}
+
+.editCommandButton:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.editCommandMenu {
+    padding: 20px;
+    background-color: #006d77;
+    border-radius: 5px;
+    margin-top: 30%;
+    z-index: 0;
+    display: none;
+}
+
+.editCommandMenu.opened {
+    position: absolute;
+    margin-left: 38%;
+    display: block;
+    z-index: 3;
+}
+
+.editCommandMenuBG {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(11, 11, 46, 0.7);
+    backdrop-filter: blur(10px);
+}
+
+.editCommandMenu.opened ~ .editCommandMenuBG {
+    display: block;
+  }
+  
+
+.editCommandForm {
+    display: grid;
+    gap: 10px;
+}
+
+input {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.confirmEditCommandButton {
+    width: 150px;
+    border: 2px solid green;
+    color: green;
+    padding: 10px 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+    justify-self: center;
+    margin-top: 10px;
+}
+
+.confirmEditCommandButton:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.deleteCommandButton {
+    flex-basis: 5%;
+    border: 2px solid red;
+    color: red;
+    padding: 10px 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+}
+
+.deleteCommandButton:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.commandOutputTitle {
+    font-family: 'IBM Plex Sans', sans-serif;
+    padding-left: 10px;
+}
+
+.commandOutput {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 18px;
+    padding-left: 10px;
+}
+
+.adminBox {
+    width: 90%;
+    padding: 10px 40px;
+    border-left: 5px solid #006d77;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.adminUserImage {
+    flex-basis: 5%;
+    border: 2px solid black;
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+.adminUserFullName {
+    flex-basis: 70%;
+}
+
+.adminUserDateJoined {
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.deleteAdminButton {
+    border: 2px solid red;
+    color: red;
+    padding: 10px 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+}
+
+.deleteAdminButton:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.addAdminButton {
+    flex-basis: 5%;
+    border: 2px solid green;
+    color: green;
+    padding: 10px 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+    margin-top: 30px;
+}
+
+.addAdminButton:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}

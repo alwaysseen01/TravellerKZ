@@ -19,5 +19,35 @@
         </nav>
         <img src="icons/logOutIcon.png" alt="" title="Log out?" class="logOutIcon">
     </header>
+    <main>
+        <div class="commandsInfoPage opened" id="commandsInfoPage opened">
+            <div class="commandBox" id="commandBox">
+                <h1 class="commandText" id="commandText">/start</h1>
+                <button class="editCommandButton" id="editCommandButton" onclick="openEditCommandMenu(this.id)">EDIT</button>
+                <div class="editCommandMenu">
+                    <form class="editCommandForm">
+                        <input type="text" placeholder="Enter command (Example: /info)" name="commandText">
+                        <input type="text" placeholder="Enter bot response" name="botResponse">
+                        <button type="submit" class="confirmEditCommandButton" onclick="confirmEditCommandMenu(this.id)">CONFIRM</button>
+                    </form>
+                </div>
+                <div class="editCommandMenuBG"></div>
+                <button class="deleteCommandButton" id="deleteCommandButton">DELETE</button>
+            </div>
+            <h2 class="commandOutputTitle">Response by bot:</h2>
+            <p class="commandOutput">
+            --> "Hello there! This is TravellerKZ bot! Nice to meet you here! How can I help you?"
+            </p>
+        </div>
+        <div class="adminsInfoPage" id="adminsInfoPage">
+            <div class="adminBox" id="adminBox">
+                <img src="icons/logoIcon.png" alt="" class="adminUserImage">
+                <h1 class="adminUserFullName">Igor Ruzhilov</h1>
+                <p class="adminUserDateJoined">Date added: 01.26.2024</p>
+                <button class="deleteAdminButton">DELETE</button>
+            </div>
+            <button class="addAdminButton">+ ADD NEW ADMIN</button>
+        </div>
+    </main>
 </body>
 </html>
