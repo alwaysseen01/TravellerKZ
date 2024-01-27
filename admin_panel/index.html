@@ -14,7 +14,8 @@
         <nav class="navigationBox">
             <ul class="navigationMenu">
                 <li class="navigationElement chosen" id="navigationElement chosen" onclick="chooseNavigationElement(this.id)">COMMANDS</li>
-                <li class="navigationElement" id="navigationElement" onclick="chooseNavigationElement(this.id)">ADMIN LIST</li>
+                <li class="navigationElement" id="navigationElement1" onclick="chooseNavigationElement(this.id)">ADMIN LIST</li>
+                <li class="navigationElement" id="navigationElement2" onclick="chooseNavigationElement(this.id)">CONTENT</li>
             </ul>
         </nav>
         <img src="icons/logOutIcon.png" alt="" title="Log out?" class="logOutIcon">
@@ -28,7 +29,14 @@
                     <form class="editCommandForm">
                         <input type="text" placeholder="Enter command (Example: /info)" name="commandText">
                         <input type="text" placeholder="Enter bot response" name="botResponse">
+                        <select class="citySelector">
+                            <option value="defaultOption">Choose city if needed</option>
+                            <option value="Almaty">Алматы</option>
+                            <option value="Astana">Астана</option>
+                            <option value="Mambetstan">Шымкент</option>
+                        </select>
                         <button type="submit" class="confirmEditCommandButton" onclick="confirmEditCommandMenu(this.id)">CONFIRM</button>
+                        <button class="discardCommandButton" onclick="closeEditCommandMenu(this.id)">DISCARD</button>
                     </form>
                 </div>
                 <div class="editCommandMenuBG"></div>
@@ -38,6 +46,7 @@
             <p class="commandOutput">
             --> "Hello there! This is TravellerKZ bot! Nice to meet you here! How can I help you?"
             </p>
+            <button class="addCommandButton">+ ADD NEW COMMAND</button>
         </div>
         <div class="adminsInfoPage" id="adminsInfoPage">
             <div class="adminBox" id="adminBox">
@@ -47,6 +56,9 @@
                 <button class="deleteAdminButton">DELETE</button>
             </div>
             <button class="addAdminButton">+ ADD NEW ADMIN</button>
+        </div>
+        <div class="contentInfoPage" id="contentInfoPage">
+            <p>asdasd</p>
         </div>
     </main>
 </body>

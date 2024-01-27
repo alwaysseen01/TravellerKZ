@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   window.openPageByChosenNavElement = (chosen_element_id) => {
     let chosen_element = this.getElementById(chosen_element_id);
-    let pages = document.querySelectorAll('.commandsInfoPage, .adminsInfoPage');
+    let pages = document.querySelectorAll('.commandsInfoPage, .adminsInfoPage, .contentInfoPage');
     pages.forEach((page) => {
       page.classList.remove('opened');
     });
@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', function() {
     } else if (chosen_element.innerHTML == "ADMIN LIST") {
       let adminsPage = document.getElementById('adminsInfoPage');
       adminsPage.classList.add('opened');
+    } else if (chosen_element.innerHTML == "CONTENT") {
+      let contentPage = document.getElementById('contentInfoPage');
+      contentPage.classList.add('opened');
     }
   }
 
@@ -43,6 +46,15 @@ document.addEventListener('DOMContentLoaded', function() {
     let editCommandMenu = document.querySelector('.editCommandMenu');
     editCommandMenu.classList.remove('opened');
   }
+
+  document.querySelector('.citySelector').addEventListener('change', function() {
+    var botResponseInput = document.querySelector('input[name="botResponse"]');
+    if (this.value !== 'defaultOption') {
+        botResponseInput.disabled = true;
+    } else {
+        botResponseInput.disabled = false;
+    }
+  });
 });
 
   
