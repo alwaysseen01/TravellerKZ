@@ -40,21 +40,64 @@ document.addEventListener('DOMContentLoaded', function() {
     // ....
     let editCommandMenu = document.querySelector('.editCommandMenu');
     editCommandMenu.classList.remove('opened');
+    event.preventDefault();
   }
 
   window.closeEditCommandMenu = (button_id) => {
     let editCommandMenu = document.querySelector('.editCommandMenu');
     editCommandMenu.classList.remove('opened');
+    event.preventDefault();
   }
 
-  document.querySelector('.citySelector').addEventListener('change', function() {
-    var botResponseInput = document.querySelector('input[name="botResponse"]');
-    if (this.value !== 'defaultOption') {
+  window.openAddCommandMenu = (button_id) => {
+    let addCommandMenu = document.querySelector('.addCommandMenu');
+    addCommandMenu.classList.add('opened');
+  }
+
+  window.confirmAddCommandMenu = (button_id) => {
+    // Some fetch logic
+    // ....
+    let addCommandMenu = document.querySelector('.addCommandMenu');
+    addCommandMenu.classList.remove('opened');
+    event.preventDefault();
+  }
+
+  window.closeAddCommandMenu = (button_id) => {
+    let addCommandMenu = document.querySelector('.addCommandMenu');
+    addCommandMenu.classList.remove('opened');
+    event.preventDefault();
+  }
+
+  let citySelectors = document.querySelectorAll('.citySelector');
+  citySelectors.forEach(function(citySelector) {
+    citySelector.addEventListener('change', function() {
+      let botResponseInput = this.parentNode.querySelector('input[name="botResponse"]');
+      if (this.value !== 'defaultOption') {
         botResponseInput.disabled = true;
-    } else {
+      } else {
         botResponseInput.disabled = false;
-    }
+      }
+    });
   });
+
+  window.openAddAdminMenu = (button_id) => {
+    let addAdminMenu = document.querySelector('.addAdminMenu');
+    addAdminMenu.classList.add('opened');
+  }
+
+  window.confirmAddAdminMenu = (button_id) => {
+    // Some fetch logic
+    // ....
+    let addAdminMenu = document.querySelector('.addAdminMenu');
+    addAdminMenu.classList.remove('opened');
+    event.preventDefault();
+  }
+
+  window.closeAddAdminMenu = (button_id) => {
+    let addAdminMenu = document.querySelector('.addAdminMenu');
+    addAdminMenu.classList.remove('opened');
+    event.preventDefault();
+  }
 });
 
   

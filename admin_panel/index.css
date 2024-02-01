@@ -251,6 +251,78 @@ input {
     padding-left: 10px;
 }
 
+.addCommandButton {
+    flex-basis: 5%;
+    border: 2px solid green;
+    color: green;
+    padding: 10px 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+}
+
+.addCommandButton:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.addCommandMenu {
+    padding: 20px;
+    background-color: #006d77;
+    border-radius: 5px;
+    z-index: 0;
+    display: none;
+}
+
+.addCommandMenu.opened {
+    position: absolute;
+    margin-left: 40%;
+    bottom: 50%;
+    display: block;
+    z-index: 3;
+}
+
+.addCommandMenuBG {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(11, 11, 46, 0.7);
+    backdrop-filter: blur(10px);
+}
+
+.addCommandMenu.opened ~ .addCommandMenuBG {
+    display: block;
+  }
+  
+
+.addCommandForm {
+    display: grid;
+    gap: 10px;
+}
+
+.confirmAddCommandButton {
+    width: 150px;
+    border: 2px solid green;
+    color: green;
+    padding: 10px 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+    justify-self: center;
+    margin-top: 10px;
+}
+
+.confirmAddCommandButton:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
 .adminBox {
     width: 90%;
     padding: 10px 40px;
@@ -300,9 +372,65 @@ input {
     border-radius: 5px;
     transition: all 0.2s ease-in-out;
     margin-top: 30px;
+    margin-left: 3%;
 }
 
 .addAdminButton:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.addAdminMenu {
+    padding: 20px;
+    background-color: #006d77;
+    border-radius: 5px;
+    z-index: 0;
+    display: none;
+}
+
+.addAdminMenu.opened {
+    position: absolute;
+    bottom: 40%;
+    display: block;
+    z-index: 3;
+}
+
+.addAdminMenuBG {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(11, 11, 46, 0.7);
+    backdrop-filter: blur(10px);
+}
+
+.addAdminMenu.opened ~ .addAdminMenuBG {
+    display: block;
+}
+
+.addAdminForm {
+    display: grid;
+    gap: 10px;
+}
+
+.confirmAddAdminButton {
+    width: 150px;
+    border: 2px solid green;
+    color: green;
+    padding: 10px 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+    justify-self: center;
+    margin-top: 10px;
+}
+
+.confirmAddAdminButton:hover {
     transform: scale(1.05);
     cursor: pointer;
 }

@@ -46,7 +46,22 @@
             <p class="commandOutput">
             --> "Hello there! This is TravellerKZ bot! Nice to meet you here! How can I help you?"
             </p>
-            <button class="addCommandButton">+ ADD NEW COMMAND</button>
+            <button class="addCommandButton" id="addCommandButton" onclick="openAddCommandMenu(this.id)">+ ADD NEW COMMAND</button>
+            <div class="addCommandMenu">
+                <form class="addCommandForm">
+                    <input type="text" placeholder="Enter new command (Example: /new)" name="commandText">
+                    <input type="text" placeholder="Enter bot response" name="botResponse">
+                    <select class="citySelector">
+                        <option value="defaultOption">Choose city if needed</option>
+                        <option value="Almaty">Алматы</option>
+                        <option value="Astana">Астана</option>
+                        <option value="Mambetstan">Шымкент</option>
+                    </select>
+                    <button type="submit" class="confirmAddCommandButton" onclick="confirmAddCommandMenu(this.id)">CONFIRM</button>
+                    <button class="discardCommandButton" onclick="closeAddCommandMenu(this.id)">DISCARD</button>
+                </form>
+            </div>
+            <div class="addCommandMenuBG"></div>
         </div>
         <div class="adminsInfoPage" id="adminsInfoPage">
             <div class="adminBox" id="adminBox">
@@ -55,7 +70,16 @@
                 <p class="adminUserDateJoined">Date added: 01.26.2024</p>
                 <button class="deleteAdminButton">DELETE</button>
             </div>
-            <button class="addAdminButton">+ ADD NEW ADMIN</button>
+            <button class="addAdminButton" id="addAdminButton" onclick="openAddAdminMenu(this.id)">+ ADD NEW ADMIN</button>
+            <div class="addAdminMenu">
+                <form class="addAdminForm">
+                    <input type="text" placeholder="Enter admin username" name="adminUsername">
+                    <input type="password" placeholder="Enter password" name="adminPassword">
+                    <button type="submit" class="confirmAddCommandButton" onclick="confirmAddAdminMenu(this.id)">CONFIRM</button>
+                    <button class="discardCommandButton" onclick="closeAddAdminMenu(this.id)">DISCARD</button>
+                </form>
+            </div>
+            <div class="addAdminMenuBG"></div>
         </div>
         <div class="contentInfoPage" id="contentInfoPage">
             <p>asdasd</p>
