@@ -51,7 +51,7 @@
                 <form class="addCommandForm">
                     <input type="text" placeholder="Enter new command (Example: /new)" name="commandText">
                     <input type="text" placeholder="Enter bot response" name="botResponse">
-                    <select class="citySelector">
+                    <select class="citySelector" required>
                         <option value="defaultOption">Choose city if needed</option>
                         <option value="Almaty">Алматы</option>
                         <option value="Astana">Астана</option>
@@ -73,8 +73,10 @@
             <button class="addAdminButton" id="addAdminButton" onclick="openAddAdminMenu(this.id)">+ ADD NEW ADMIN</button>
             <div class="addAdminMenu">
                 <form class="addAdminForm">
-                    <input type="text" placeholder="Enter admin username" name="adminUsername">
-                    <input type="password" placeholder="Enter password" name="adminPassword">
+                    <input type="text" placeholder="Enter admin username" name="adminUsername" required>
+                    <input type="text" placeholder="Enter first name" name="adminFistName" required>
+                    <input type="text" placeholder="Enter last name" name="adminLastName" required>
+                    <input type="password" placeholder="Enter password" name="adminPassword" required>
                     <button type="submit" class="confirmAddCommandButton" onclick="confirmAddAdminMenu(this.id)">CONFIRM</button>
                     <button class="discardCommandButton" onclick="closeAddAdminMenu(this.id)">DISCARD</button>
                 </form>
@@ -82,7 +84,33 @@
             <div class="addAdminMenuBG"></div>
         </div>
         <div class="contentInfoPage" id="contentInfoPage">
-            <p>asdasd</p>
+            <div class="cityBox" id="cityBox">
+                <h1 class="cityName">Almaty</h1>
+                <p class="cityDateAdded">Date added: 01.26.2024</p>
+                <button class="deleteCityButton">DELETE</button>
+            </div>
+            <h2 class="commandOutputTitle" style="padding-left: 55px;">City information text:</h2>
+            <p class="commandOutput" style="padding-left: 55px; margin: 0;">
+                Almaty is still the major commercial, financial, and cultural centre of Kazakhstan, as well as its most populous and most cosmopolitan city. The city is located in 
+                the mountainous area of southern Kazakhstan near the border with Kyrgyzstan in the foothills of the Trans-Ili Alatau at an elevation of 700–900 m (2,300–3,000 feet), 
+                where the Large and Small Almatinka rivers run into the plain. The city, just like Astana and Shymkent, does not belong to any region and is officially a "city of 
+                republican significance".
+                The city has been part of the UNESCO Creative Cities Network in the area of music since November 2017. The city was the host for a 1978 international conference on 
+                Primary Health Care where the Alma Ata Declaration was adopted, marking a paradigm shift in global public health.
+            </p>
+            <button class="addCityButton" id="addCityButton" onclick="openAddCityMenu(this.id)">+ ADD NEW CITY</button>
+            <div class="addCityMenu">
+                <form class="addCityForm">
+                    <input type="text" placeholder="Enter city name" name="cityName">
+                    <select class="commandSelector" required>
+                        <option value="defaultOption">Choose command to respond</option>
+                        <option value="/start">/start</option>
+                    </select>
+                    <button type="submit" class="confirmAddCityButton" onclick="confirmAddCityMenu(this.id)">CONFIRM</button>
+                    <button class="discardCityButton" onclick="closeAddCityMenu(this.id)">DISCARD</button>
+                </form>
+            </div>
+            <div class="addCityMenuBG"></div>
         </div>
     </main>
 </body>

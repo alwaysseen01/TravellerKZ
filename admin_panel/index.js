@@ -98,6 +98,25 @@ document.addEventListener('DOMContentLoaded', function() {
     addAdminMenu.classList.remove('opened');
     event.preventDefault();
   }
+
+  window.openAddCityMenu = (button_id) => {
+    let addCityMenu = document.querySelector('.addCityMenu');
+    addCityMenu.classList.add('opened');
+  }
+
+  window.confirmAddCityMenu = (button_id) => {
+    // Some fetch logic
+    // ....
+    let addCityMenu = document.querySelector('.addCityMenu');
+    addCityMenu.classList.remove('opened');
+    event.preventDefault();
+  }
+
+  window.closeAddCityMenu = (button_id) => {
+    let addCityMenu = document.querySelector('.addCityMenu');
+    addCityMenu.classList.remove('opened');
+    event.preventDefault();
+  }
 });
 
   
